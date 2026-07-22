@@ -1,17 +1,17 @@
 class Gmutils < Formula
   desc "Genmeta Binary Utilities"
-  version "0.8.0-beta.6"
+  version "0.8.0-beta.7"
   homepage "https://www.dhttp.net"
   license "Apache-2.0"
 
   on_arm do
-    url "https://download.dhttp.net/homebrew/preview/gmutils-0.8.0-beta.6-aarch64-apple-darwin.tar.gz"
-    sha256 "f1c637df5c6e3dc84e6f90ddbc9495461c8f1a783711cea9c540b31aba79be3f"
+    url "https://download.dhttp.net/homebrew/preview/gmutils-0.8.0-beta.7-aarch64-apple-darwin.tar.gz"
+    sha256 "ea1dd27e1ff2c44f6475785006d04560a1f019f0494560b08ee99eb2cb51e323"
   end
 
   on_intel do
-    url "https://download.dhttp.net/homebrew/preview/gmutils-0.8.0-beta.6-x86_64-apple-darwin.tar.gz"
-    sha256 "8558804d3d0be2805d44d065d4827e77b8ecfb46676b6f294003c0ed567d9798"
+    url "https://download.dhttp.net/homebrew/preview/gmutils-0.8.0-beta.7-x86_64-apple-darwin.tar.gz"
+    sha256 "0033f427194e086d1047c6f842925d9c62475e65870fd09981d6120e482db88e"
   end
 
   def install
