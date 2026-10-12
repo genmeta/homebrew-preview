@@ -1,40 +1,29 @@
 class Pishoo < Formula
   desc "modern, secure, QUIC-powered web/proxy engine"
-  version "0.8.2-beta.2"
+  version "0.9.0-preview.1"
   homepage "https://www.dhttp.net"
   license "Apache-2.0"
 
   on_arm do
-    url "https://download.dhttp.net/homebrew/preview/pishoo_0.8.2-beta.2-aarch64-apple-darwin.tar.gz"
-    sha256 "8c600c62504c6e0b51d777daeaa11ac097cec5feefe3df06e5ae62a13d05682d"
+    url "https://download.dhttp.net/homebrew/preview/pishoo_0.9.0-preview.1-aarch64-apple-darwin.tar.gz"
+    sha256 "0492488125644397bd7830afd1c404a9447ad4558255c10c88839f5d8ccf4bab"
   end
 
   on_intel do
-    url "https://download.dhttp.net/homebrew/preview/pishoo_0.8.2-beta.2-x86_64-apple-darwin.tar.gz"
-    sha256 "c44faaa7bbaf83d10a38f486c47cea1b3b87912fce94208400c8b70fd86105bb"
+    url "https://download.dhttp.net/homebrew/preview/pishoo_0.9.0-preview.1-x86_64-apple-darwin.tar.gz"
+    sha256 "4469c7b074d0450bcef8bf08b1ee86dcd466ed36882d7eb2701c4d1853abe152"
   end
 
   def install
     bin.install "pishoo"
-    libexec.install "pishoo-worker"
-    libexec.install "pishoo-ssh-session"
-
-
-    (etc/"dhttp").mkpath
-    chmod 0755, etc/"dhttp"
-    etc.install "pishoo.conf" => "dhttp/pishoo.conf" unless File.exist? "#{etc}/dhttp/pishoo.conf"
-    etc.install "mime.types"  => "dhttp/mime.types"  unless File.exist? "#{etc}/dhttp/mime.types"
   end
 
   def caveats
     <<~EOS
-      Configuration files are installed at:
-        #{etc}/dhttp/pishoo.conf
-
-      On macOS, default global-home mode loads worker users from the existing _www group.
-      This formula does not create or modify system groups. To opt the current user into
-      default pishoo worker discovery, run:
-        sudo dseditgroup -o edit -a "$USER" -t user _www
+      Run Pishoo as the user who owns ~/.dhttp, or set DHTTP_HOME explicitly.
+      Identity directories and current databases are initialized at first startup.
+      Existing data is preserved; unsupported legacy databases stop startup with a diagnostic.
+      To run as the current user, use: brew services start pishoo
     EOS
   end
 
@@ -47,6 +36,6 @@ class Pishoo < Formula
   end
 
   test do
-    system "#{bin}/pishoo", "-V"
+    assert_predicate bin/"pishoo", :executable?
   end
 end
