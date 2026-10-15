@@ -1,22 +1,21 @@
 class Pishoo < Formula
   desc "modern, secure, QUIC-powered web/proxy engine"
-  version "0.9.0-preview.2"
+  version "0.9.0-preview.3"
   homepage "https://www.dhttp.net"
   license "Apache-2.0"
 
   on_arm do
-    url "https://download.dhttp.net/homebrew/preview/pishoo_0.9.0-preview.2-aarch64-apple-darwin.tar.gz"
-    sha256 "208957048b17c4b100959c3d5e7f1bf3911b48d564ba222b6f450be78eb84381"
+    url "https://download.dhttp.net/homebrew/preview/pishoo_0.9.0-preview.3-aarch64-apple-darwin.tar.gz"
+    sha256 "4ba98a103df00e59b91aa8879697d75eac2ff55a4e37c98d7798472f56c0549d"
   end
 
   on_intel do
-    url "https://download.dhttp.net/homebrew/preview/pishoo_0.9.0-preview.2-x86_64-apple-darwin.tar.gz"
-    sha256 "c976a1da0dafd36e44455fecb7fe35233c26a406a07d023db1e95cb2c9fdc073"
+    url "https://download.dhttp.net/homebrew/preview/pishoo_0.9.0-preview.3-x86_64-apple-darwin.tar.gz"
+    sha256 "75e586b51f64a46141ef8399e7742f3267baeca6a20a4915e8f8d75983f77d2e"
   end
 
   def install
     bin.install "pishoo"
-    bin.install "pishoo-pack"
   end
 
   def caveats
@@ -42,6 +41,5 @@ class Pishoo < Formula
 
   test do
     assert_predicate bin/"pishoo", :executable?
-    assert_match "pishoo-pack", shell_output("#{bin}/pishoo-pack --help")
   end
 end
