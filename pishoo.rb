@@ -1,17 +1,17 @@
 class Pishoo < Formula
   desc "modern, secure, QUIC-powered web/proxy engine"
-  version "0.9.2-preview.2"
+  version "0.9.2-preview.3"
   homepage "https://www.dhttp.net"
   license "Apache-2.0"
 
   on_arm do
-    url "https://download.dhttp.net/homebrew/preview/pishoo_0.9.2-preview.2-aarch64-apple-darwin.tar.gz"
-    sha256 "133e7a81194ea2114e5c1e3385be957126ea627d6851f7e76b647c3fb2635865"
+    url "https://download.dhttp.net/homebrew/preview/pishoo_0.9.2-preview.3-aarch64-apple-darwin.tar.gz"
+    sha256 "2f20bfcb268c32039d7ee251e558c77f06508649be5085273ee82d681c913ef5"
   end
 
   on_intel do
-    url "https://download.dhttp.net/homebrew/preview/pishoo_0.9.2-preview.2-x86_64-apple-darwin.tar.gz"
-    sha256 "c384263dd42f9b171a62c2818de082f15a3d1e46962ead6dd332f03c1c218e52"
+    url "https://download.dhttp.net/homebrew/preview/pishoo_0.9.2-preview.3-x86_64-apple-darwin.tar.gz"
+    sha256 "d20d6a43361087d4079d53bbdfe803859d45d862ab51159e234d343fee651582"
   end
 
   def install
